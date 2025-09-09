@@ -4,8 +4,13 @@
   <title><%= GrapeSwaggerRails.options.app_name || 'Swagger UI' %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
-  <%= stylesheet_link_tag 'grape_swagger_rails/application.css' %>
-  <%= javascript_include_tag 'grape_swagger_rails/application.js' %>
+  <% if defined?(Propshaft::Railtie) && Rails.application.assets.is_a?(Propshaft::Assembly) %>
+    <%= stylesheet_link_tag 'grape_swagger_rails/reset', 'grape_swagger_rails/screen-propshaft', 'grape_swagger_rails/application', media: 'all' %>
+    <%= javascript_include_tag 'grape_swagger_rails/jquery-1.8.0.min', 'grape_swagger_rails/jquery.slideto.min', 'grape_swagger_rails/jquery.wiggle.min', 'grape_swagger_rails/jquery.ba-bbq.min', 'grape_swagger_rails/handlebars-2.0.0', 'grape_swagger_rails/marked', 'grape_swagger_rails/lodash.min', 'grape_swagger_rails/backbone-min', 'grape_swagger_rails/swagger-ui.min', 'grape_swagger_rails/highlight.9.1.0.pack', 'grape_swagger_rails/js-yaml.min', 'grape_swagger_rails/jsoneditor.min', 'grape_swagger_rails/object-assign-pollyfill', 'grape_swagger_rails/swagger-oauth', 'grape_swagger_rails/base64', 'grape_swagger_rails/application' %>
+  <% else %>
+    <%= stylesheet_link_tag 'grape_swagger_rails/application', media: 'all' %>
+    <%= javascript_include_tag 'grape_swagger_rails/application' %>
+  <% end %>
   <script type="text/javascript">
 	$(function () {
 	  var options = $("html").data('swagger-options');
