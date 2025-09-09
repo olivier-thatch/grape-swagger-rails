@@ -1,6 +1,7 @@
-### 0.6.1 (Next)
+### 0.7.0 (Next)
 
 * Your contribution here.
+* [#130](https://github.com/ruby-grape/grape-swagger-rails/pull/130): Propshaft support - [@olivier-thatch](https://github.com/olivier-thatch).
 
 ### 0.6.0 (2024/11/21)
 
